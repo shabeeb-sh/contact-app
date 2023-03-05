@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>
+                Online Contact Application
+
+                <a class="btn btn-success ms-2" routerLink="add-contacts">
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Add New
+                </a>
+            </h1>
+            <!-- dummt data -->
+            <p style="text-align: justify;">This is Dummy Data: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ullam ducimus eius vero nam, quis atque dolorum quaerat porro blanditiis veritatis placeat architecto commodi aspernatur debitis aliquam dolorem itaque ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim incidunt provident animi iure fuga porro similique illo odio, nostrum reprehenderit accusamus molestias inventore consequatur quasi illum, pariatur corrupti! Itaque, accusamus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem adipisci minus sed ipsum tempore atque repellendus delectus alias fugiat tempora maxime, aspernatur dolorem? Ipsum corrupti, nulla laboriosam asperiores porro ipsam.</p>
+            <!-- Search box -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" [(ngModel)]="searchKey" class="form-control"  placeholder="Search Contact Here">
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Card design -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let contact of allContacts | filter :searchKey:'name'">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- image -->
+                        <img class="contact_image p-1" [src]="contact.photo" alt="Contact image">
+                    </div>
+                    <div class="col-md-7">
+                        <!-- contact details -->
+                        <ul class="list-group">
+                            <li class="list-group-item">Name : <span class="fw-holder"> {{contact.name}} </span></li>
+                            <li class="list-group-item">Mobile : <span class="fw-holder">{{contact.mobile}}</span></li>
+                            <li class="list-group-item">Email : <span class="fw-holder">{{contact.email}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-1 d-flex flex-column justify-content-center align-items-center">
+                        <!-- action -->
+                        <!-- view -->
+                        <a routerLink="view-contact/{{contact.id}}" class="btn btn-success mt-1 mb-1 me-3">
+                            <i class="fa-solid fa-eye"></i>
+
+                        </a>
+                        <a routerLink="edit-contacts/{{contact.id}}" class="btn btn-warning mb-1 me-3">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <!-- delete -->
+                        <button (click)="deleteContact(contact.id)" class="btn btn-danger me-3 mb-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>

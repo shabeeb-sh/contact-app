@@ -1,0 +1,28 @@
+     
+
+     Contact Managment App Work Flow
+     -------------------------------
+
+     1.create new project - ng new project-name
+     2.run project -ng s
+     3.remove all contents from appcomponent.html file
+     4.configure external libraries
+     5.Create components needed for this website
+       - all-contacts
+       - add-contacts
+       - edit-contacts
+       - view-contacts
+       - navbar
+    6.set up path for all components
+    7.use selector router-outlet 
+    8.Desugn component html view
+    9.create Angular service for making api call
+    10.create a model for Contact
+
+
+
+    Angular
+    -------
+
+    1.Angular Pipe : transfer user input into another format
+        -syntax: {{value_expression |pipe-operator|}}
